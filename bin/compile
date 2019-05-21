@@ -137,24 +137,12 @@ if [ $RUST_SKIP_BUILD -ne 1 ]; then
   if [ ! -d "$CACHE_DIR/protoc" ]; then
     echo "-----> Downloading protoc v3.0.0"
 
-    wget https://github.com/protocolbuffers/protobuf/releases/download/v3.7.1/protoc-3.7.1-linux-x86_64.zip -O $CACHE_DIR/protoc-3.7.1-linux-x86_64.zip
-    unzip $CACHE_DIR/protoc-3.7.1-linux-x86_64.zip -d $CACHE_DIR/protoc
+    wget -q https://github.com/protocolbuffers/protobuf/releases/download/v3.7.1/protoc-3.7.1-linux-x86_64.zip -O $CACHE_DIR/protoc-3.7.1-linux-x86_64.zip 2>&1
+    unzip -qq $CACHE_DIR/protoc-3.7.1-linux-x86_64.zip -d $CACHE_DIR/protoc
     chmod 755 ${CACHE_DIR}/protoc/bin/protoc
   fi
   export PATH=$PATH:${CACHE_DIR}/protoc/bin
   echo "-----> $(protoc --version)"
-  
-  
-  # echo "-----> Installing protobuf-codegen"
-  # cargo install protobuf-codegen
-  
-  #echo "-----> Creating apf.rs"
-  #protoc --rust_out src/protos src/protos/apf.proto
-  #if [ -f "src/protos/apf.rs" ]; then
-  #  echo "-----> apf.rs created"
-  #else
-  #  echo "-----> Failed to creating apf.rs"
-  #fi
   
   echo "-----> Building application using Cargo"
   cd "$BUILD_DIR/$BUILD_PATH"
