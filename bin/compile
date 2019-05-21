@@ -31,7 +31,7 @@ BUILD_PATH=""
 # `release: ./target/release/diesel migration run`
 RUST_INSTALL_DIESEL=0
 # These flags are passed to `cargo install diesel`, e.g. '--no-default-features --features postgres'
-DIESEL_FLAGS=""
+DIESEL_FLAGS="--no-default-features --features postgres"
 # Default build flags to pass to `cargo build`.
 RUST_CARGO_BUILD_FLAGS="--release"
 
