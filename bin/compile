@@ -30,6 +30,7 @@ BUILD_PATH=""
 # run migrations by adding a release step to your Procfile:
 # `release: ./target/release/diesel migration run`
 RUST_INSTALL_DIESEL=0
+RUST_INSTALL_PROTOBUF=0
 # These flags are passed to `cargo install diesel`, e.g. '--no-default-features --features postgres'
 DIESEL_FLAGS="--no-default-features --features postgres"
 # Default build flags to pass to `cargo build`.
