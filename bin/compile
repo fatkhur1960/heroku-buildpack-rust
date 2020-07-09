@@ -158,8 +158,8 @@ else
 fi
 
 # Install diesel so we can use it for migrations
-if [ $RUST_INSTALL_DIESEL -eq 1 ]; then
+#if [ $RUST_INSTALL_DIESEL -eq 1 ]; then
   echo "-----> Installing diesel"
   cargo install diesel_cli $DIESEL_FLAGS || echo "already installed"
   cp $(which diesel) target/release/
-fi
+#fi
